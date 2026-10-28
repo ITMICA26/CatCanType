@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cat Typing Game</title>
+  <link rel="stylesheet" href="typing.css">
+</head>
+<body>
+  <h1>🐱 SAT Word Typing Game</h1>
+<a href="index.html">Clicker Game</a>
+  <div id="stats">
+    <div>Time <strong><span id="time">60</span>s</strong></div>
+    <div>WPM <strong id="wpm">0</strong></div>
+    <div>Accuracy <strong><span id="accuracy">100</span>%</strong></div>
+    <div>Score <strong id="score">0</strong></div>
+    <div>Level <strong id="level">1</strong></div>
+    <div>Best WPM <strong id="best">0</strong></div>
+  </div>
+
+  <img id="cat" src="cat.png" alt="Your cat">
+
+  <p id="message"></p>
+
+  <div id="word">Press Start</div>
+  <div id="definition">Type the definition of the word exactly as shown.</div>
+
+  <input id="typing-input" type="text" autocomplete="off" autocapitalize="off"
+         autocorrect="off" spellcheck="false" placeholder="Start typing here..." disabled>
+
+  <button id="start">Start</button>
+
+  <div id="result"></div>
+
+  <script src="typing.js"></script>
+</body>
+</html>

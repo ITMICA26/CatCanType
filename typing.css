@@ -1,0 +1,131 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f4f6fb;
+  margin: 0;
+  padding: 20px;
+}
+ 
+h1 {
+  margin-bottom: 10px;
+}
+ 
+#stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+ 
+#stats div {
+  background: white;
+  border-radius: 8px;
+  padding: 8px 14px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  font-size: 14px;
+}
+ 
+#stats strong {
+  display: block;
+  font-size: 22px;
+}
+ 
+#cat {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+ 
+#cat.bounce {
+  animation: bounce 0.3s;
+}
+ 
+@keyframes bounce {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+ 
+#message {
+  min-height: 24px;
+  font-weight: bold;
+  color: #d97706;
+}
+ 
+#word {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+ 
+#definition {
+  max-width: 700px;
+  margin: 0 auto 15px;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+  font-size: 24px;
+  line-height: 1.5;
+  font-family: "Courier New", monospace;
+  text-align: left;
+}
+ 
+#definition .correct {
+  color: #16a34a;
+}
+ 
+#definition .wrong {
+  color: white;
+  background: #dc2626;
+}
+ 
+#definition .current {
+  background: #fde68a;
+  border-bottom: 3px solid #d97706;
+}
+ 
+#typing-input {
+  width: 90%;
+  max-width: 700px;
+  font-size: 20px;
+  padding: 10px;
+  border: 2px solid #94a3b8;
+  border-radius: 8px;
+}
+ 
+#typing-input:disabled {
+  background: #e5e7eb;
+}
+ 
+button {
+  display: block;
+  margin: 15px auto;
+  font-size: 18px;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+}
+ 
+button:hover {
+  background: #1d4ed8;
+}
+ 
+#result {
+  font-size: 20px;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+ 
+#definition { font-size: 28px; line-height: 1.5; max-width: 700px; margin: 10px auto; }
+#definition .correct { color: green; }
+#definition .wrong   { color: white; background: red; }
+#definition .current { border-bottom: 3px solid black; }
+
+#typing-input { width: 80%; max-width: 700px; font-size: 22px; padding: 10px; }
+.stats h2 { display: inline-block; margin: 5px 12px; }
+
+#result { white-space: pre-line; font-size: 22px; }  /* needed: result text uses \n line breaks */
