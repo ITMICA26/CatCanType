@@ -1,6 +1,8 @@
 // ===== Settings =====
 const GAME_SECONDS = 60;
 // WORDBANKS
+
+const bankSelect = document.getElementById("word-bank");
 const satWords = [
   { word: "ubiquitous", definition: "present or found everywhere at the same time" },
   { word: "ephemeral", definition: "lasting for a very short time" },
@@ -523,7 +525,7 @@ const satWords = [
 
 
 // Add as many words as you like: { word, definition }
-const words = [
+const satWords2 = [
   { word: "ubiquitous", definition: "present or found everywhere at the same time" },
   { word: "ephemeral", definition: "lasting for a very short time" },
   { word: "benevolent", definition: "kind and generous toward other people" },
@@ -1041,7 +1043,119 @@ const words = [
   { word: "vicissitude", definition: "a change in circumstances, often difficult" },
   { word: "vilify", definition: "to speak about someone in an abusive way" }
 ];
+const investingWords = [
+  { word: "invest", definition: "put money into something with the goal of earning a future return" },
+  { word: "compound", definition: "earn returns on both your original money and previous gains" },
+  { word: "patience", definition: "wait calmly instead of making impulsive investment decisions" },
+  { word: "ownership", definition: "having a legal stake in an asset or business" },
+  { word: "equity", definition: "ownership in a company, often represented by shares" },
+  { word: "dividend", definition: "a portion of company profits distributed to shareholders" },
+  { word: "portfolio", definition: "the collection of investments owned by an investor" },
+  { word: "diversification", definition: "spread investments across assets to reduce concentration risk" },
+  { word: "volatility", definition: "the degree to which an investment price moves up and down" },
+  { word: "risk", definition: "the possibility that an investment will lose value" },
+  { word: "return", definition: "the gain or loss produced by an investment" },
+  { word: "inflation", definition: "a general rise in prices that reduces purchasing power" },
+  { word: "liquidity", definition: "how easily an asset can be converted into cash" },
+  { word: "capital", definition: "money or assets used to build wealth or operate a business" },
+  { word: "appreciation", definition: "an increase in the value of an asset" },
+  { word: "depreciation", definition: "a decrease in the value of an asset" },
+  { word: "reinvest", definition: "use investment earnings to buy more investments" },
+  { word: "discipline", definition: "follow a plan even when emotions encourage a different choice" },
+  { word: "consistency", definition: "invest regularly rather than relying on perfect timing" },
+  { word: "longterm", definition: "focused on years of progress rather than daily price changes" },
 
+  { word: "business", definition: "a company creates value by serving customers" },
+  { word: "profit", definition: "money remaining after a business pays its costs" },
+  { word: "revenue", definition: "the money a company earns from selling goods or services" },
+  { word: "earnings", definition: "the profit a company generates over a period" },
+  { word: "cashflow", definition: "money moving into and out of a business" },
+  { word: "moat", definition: "a durable advantage that helps protect a business from competitors" },
+  { word: "brand", definition: "a reputation that can make customers choose one company" },
+  { word: "innovation", definition: "creating new ideas or products that improve people's lives" },
+  { word: "customer", definition: "a business succeeds by serving people who buy its products" },
+  { word: "competition", definition: "rival businesses trying to win the same customers" },
+  { word: "management", definition: "the people responsible for guiding a company's decisions" },
+  { word: "valuation", definition: "an estimate of what an asset or company is worth" },
+  { word: "margin", definition: "the difference between revenue and costs, often expressed as a percentage" },
+  { word: "debt", definition: "money borrowed that must be repaid" },
+  { word: "leverage", definition: "using borrowed money to increase potential investment exposure" },
+  { word: "bankruptcy", definition: "a legal process for dealing with severe financial distress" },
+  { word: "cash", definition: "money available for spending or investing" },
+  { word: "reserve", definition: "money kept available for unexpected expenses" },
+  { word: "budget", definition: "a plan for how money will be earned, spent, and saved" },
+  { word: "savings", definition: "money set aside instead of spent" },
+
+  { word: "freedom", definition: "financial resources can expand your choices in life" },
+  { word: "wealth", definition: "the value of assets owned minus liabilities owed" },
+  { word: "expense", definition: "money spent to buy goods or services" },
+  { word: "income", definition: "money received from work, business, or investments" },
+  { word: "asset", definition: "something valuable that you own" },
+  { word: "liability", definition: "a debt or financial obligation you owe" },
+  { word: "networth", definition: "the value of everything owned minus everything owed" },
+  { word: "opportunity", definition: "a possibility that may create value or profit" },
+  { word: "scarcity", definition: "a limited supply of something people want" },
+  { word: "index", definition: "a measure tracking a group of investments" },
+  { word: "ETF", definition: "a fund that trades on an exchange and can hold many assets" },
+  { word: "S&P500", definition: "an index representing about 500 leading US companies" },
+  { word: "NASDAQ", definition: "a US stock exchange known for many technology companies" },
+  { word: "stock", definition: "a share representing ownership in a company" },
+  { word: "shareholder", definition: "a person or institution that owns company shares" },
+  { word: "market", definition: "a place or system where buyers and sellers trade assets" },
+  { word: "bullish", definition: "expecting prices or markets to rise" },
+  { word: "bearish", definition: "expecting prices or markets to fall" },
+  { word: "correction", definition: "a market decline of roughly ten percent from a recent peak" },
+  { word: "crash", definition: "a sudden and severe decline in market prices" },
+
+  { word: "recovery", definition: "a return toward previous values after a decline" },
+  { word: "drawdown", definition: "the decline from an investment's peak value to a lower point" },
+  { word: "recession", definition: "a broad and significant decline in economic activity" },
+  { word: "cycle", definition: "a recurring pattern of expansion and contraction in markets" },
+  { word: "timing", definition: "choosing when to enter or exit an investment" },
+  { word: "prediction", definition: "a forecast that may be wrong about future events" },
+  { word: "uncertainty", definition: "the fact that future outcomes cannot be known with certainty" },
+  { word: "probability", definition: "the likelihood that an event will occur" },
+  { word: "research", definition: "carefully study information before making an investment decision" },
+  { word: "evidence", definition: "information that supports or challenges an investment idea" },
+  { word: "thesis", definition: "the reasons an investor believes an investment may succeed" },
+  { word: "strategy", definition: "a planned approach for making investment decisions" },
+  { word: "speculation", definition: "taking risk mainly in hopes of profiting from price changes" },
+  { word: "trading", definition: "buying and selling assets, often more frequently than investing" },
+  { word: "fees", definition: "charges that reduce the money an investor keeps" },
+  { word: "taxes", definition: "payments to governments that can affect investment returns" },
+  { word: "time", definition: "starting early gives compounding more years to work" },
+  { word: "regular", definition: "investing a fixed amount on a schedule is called dollar cost averaging" },
+  { word: "balance", definition: "a diversified portfolio can reduce dependence on one investment" },
+  { word: "concentration", definition: "putting too much money into one asset increases specific risk" },
+
+  { word: "emotions", definition: "fear and greed can lead to poor financial decisions" },
+  { word: "panic", definition: "selling in fear can lock in losses" },
+  { word: "greed", definition: "chasing quick profits can encourage excessive risk" },
+  { word: "hype", definition: "popular excitement does not guarantee an investment is valuable" },
+  { word: "scam", definition: "a dishonest scheme designed to steal money" },
+  { word: "guarantee", definition: "no legitimate risky investment can promise a certain profit" },
+  { word: "bitcoin", definition: "a decentralized digital currency with a limited issuance schedule" },
+  { word: "blockchain", definition: "a shared digital ledger maintained across a network" },
+  { word: "wallet", definition: "software or hardware used to manage cryptocurrency keys" },
+  { word: "privatekey", definition: "a secret credential that controls access to cryptocurrency" },
+  { word: "halving", definition: "an event that reduces Bitcoin's new issuance per block" },
+  { word: "adoption", definition: "the use of a technology or asset by more people or institutions" },
+  { word: "regulation", definition: "government rules that can affect financial markets" },
+  { word: "security", definition: "protecting accounts and assets from theft or unauthorized access" },
+  { word: "apple", definition: "Apple sells devices and services within a connected ecosystem" },
+  { word: "ecosystem", definition: "products and services that work together and encourage loyalty" },
+  { word: "value", definition: "a thoughtful investor compares price with underlying worth" },
+  { word: "buffett", definition: "Warren Buffett is known for value investing and business analysis" },
+  { word: "intrinsic", definition: "intrinsic value is an estimate of an asset's underlying worth" },
+  { word: "humility", definition: "recognize that even experienced investors make mistakes" }
+];
+const wordBanks = {
+  words1: satWords,
+  words2: satWords2,
+  words3: investingWords
+}
+
+let words = wordBanks.words1; // default word bank
 
 // ===== Page elements =====
 const cat = document.getElementById("cat");
@@ -1240,6 +1354,7 @@ function startGame() {
   clearInterval(timerId);
   score = 0;
   level = 1;
+  words = wordBanks[bankSelect.value];
   deck = shuffle(words);
   completedChars = 0;
   wordsDone = 0;

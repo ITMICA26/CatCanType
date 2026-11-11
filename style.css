@@ -34,39 +34,35 @@ body {
 
 /* Floating score popup */
 
-
 .popup {
     position: fixed;
+    font-family: "Arial", sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: -1px;
 
-    font-family: "Lilita One", "Arial Black", sans-serif;
-    font-size: 38px;
-    font-weight: 400;
-    letter-spacing: -0.5px;
-
+    /* Sky gradient */
     background: linear-gradient(
         180deg,
         #ffffff 0%,
-        #d8f7ff 20%,
-        #65d5ff 45%,
-        #199aff 75%,
-        #0871ed 100%
+        #b9f3ff 25%,
+        #45c8ff 55%,
+        #1685ff 100%
     );
 
+    /* Shiny text */
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 
-    -webkit-text-stroke: 1.2px #ffffff;
-
-    filter:
-        drop-shadow(0 3px 0 #0754b8)
-        drop-shadow(0 5px 0 #043c8a)
-        drop-shadow(0 0 8px rgba(56, 189, 248, 0.65));
+    /* Glow and depth */
+    filter: drop-shadow(0 2px 0 #0872c9)
+            drop-shadow(0 0 10px rgba(56, 189, 248, 0.6));
 
     pointer-events: none;
     animation: floatUp 0.7s ease-out forwards;
+    transform: scale(1);
 }
-
 
 
 @keyframes floatUp {

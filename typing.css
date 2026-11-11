@@ -20,7 +20,28 @@
 }
 
 * { box-sizing: border-box; }
+.duration-options {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
 
+.duration-btn {
+  padding: 10px 18px;
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.duration-btn.active {
+  background: #222;
+  color: white;
+  border-color: #222;
+}
 body {
   font-family: 'Fredoka', 'Arial Rounded MT Bold', Arial, sans-serif;
   text-align: center;
