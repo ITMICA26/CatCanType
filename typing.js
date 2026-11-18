@@ -1,8 +1,17 @@
 // ===== Settings =====
-const GAME_SECONDS = 60;
+const GAME_SECONDS = 20;
 // WORDBANKS
 
+// ITEMS
+const piece = document.createElement
+
+
+
 const bankSelect = document.getElementById("word-bank");
+const customWords = [
+  {}
+]
+
 const satWords = [
   { word: "ubiquitous", definition: "present or found everywhere at the same time" },
   { word: "ephemeral", definition: "lasting for a very short time" },
@@ -1149,10 +1158,95 @@ const investingWords = [
   { word: "intrinsic", definition: "intrinsic value is an estimate of an asset's underlying worth" },
   { word: "humility", definition: "recognize that even experienced investors make mistakes" }
 ];
+const ketoWords = [
+  { word: "ketosis", definition: "a metabolic state where the body uses ketones for energy" },
+  { word: "ketone", definition: "a molecule produced when the body breaks down fat for energy" },
+  { word: "ketogenic", definition: "describing a diet designed to promote nutritional ketosis" },
+  { word: "carbohydrate", definition: "a nutrient found in foods like bread, rice, and sugar" },
+  { word: "glucose", definition: "a sugar that serves as an important source of energy" },
+  { word: "insulin", definition: "a hormone that helps regulate blood glucose levels" },
+  { word: "glycogen", definition: "stored glucose found mainly in the liver and muscles" },
+  { word: "metabolism", definition: "the chemical processes that keep the body functioning" },
+  { word: "fat", definition: "a nutrient that provides energy and supports essential body functions" },
+  { word: "protein", definition: "a nutrient essential for muscles, tissues, and repair" },
+  { word: "electrolyte", definition: "a mineral that helps regulate fluid balance and nerve function" },
+  { word: "sodium", definition: "an electrolyte important for fluid balance and nerve signaling" },
+  { word: "potassium", definition: "a mineral essential for muscle contractions and nerve function" },
+  { word: "magnesium", definition: "a mineral involved in hundreds of reactions in the body" },
+  { word: "hydration", definition: "maintaining adequate water levels in the body" },
+  { word: "satiety", definition: "the feeling of being satisfied after eating" },
+  { word: "appetite", definition: "the desire or motivation to eat food" },
+  { word: "calorie", definition: "a unit used to measure the energy provided by food" },
+  { word: "deficit", definition: "consuming less energy than the body uses" },
+  { word: "surplus", definition: "consuming more energy than the body uses" },
+
+  { word: "avocado", definition: "a fruit rich in monounsaturated fat and fiber" },
+  { word: "olive", definition: "a fruit commonly used to produce monounsaturated fat-rich oil" },
+  { word: "butter", definition: "a dairy fat commonly used in low-carbohydrate cooking" },
+  { word: "ghee", definition: "clarified butter with most milk solids removed" },
+  { word: "coconut", definition: "a tropical fruit containing fats including medium-chain triglycerides" },
+  { word: "MCT", definition: "medium-chain triglycerides, fats metabolized relatively quickly" },
+  { word: "ribeye", definition: "a beef cut known for its marbling and rich flavor" },
+  { word: "salmon", definition: "a fatty fish rich in protein and omega-three fats" },
+  { word: "sardine", definition: "a small oily fish rich in protein and omega-three fats" },
+  { word: "egg", definition: "a nutrient-dense food containing protein and essential nutrients" },
+  { word: "yolk", definition: "the yellow center of an egg containing fats and nutrients" },
+  { word: "bacon", definition: "a cured pork product often eaten in low-carbohydrate meals" },
+  { word: "cheese", definition: "a dairy food containing protein, fat, and varying amounts of carbohydrates" },
+  { word: "cream", definition: "the fat-rich portion of milk used in cooking and beverages" },
+  { word: "yogurt", definition: "a fermented dairy food containing protein and beneficial bacteria" },
+  { word: "broccoli", definition: "a low-carbohydrate vegetable rich in fiber and micronutrients" },
+  { word: "spinach", definition: "a leafy green vegetable rich in vitamins and minerals" },
+  { word: "zucchini", definition: "a versatile vegetable relatively low in carbohydrates" },
+  { word: "cauliflower", definition: "a vegetable often used as a low-carbohydrate rice substitute" },
+  { word: "asparagus", definition: "a green vegetable containing fiber and micronutrients" },
+
+  { word: "fiber", definition: "a carbohydrate that supports digestive health" },
+  { word: "microbiome", definition: "the community of microorganisms living in the digestive tract" },
+  { word: "digestion", definition: "the process of breaking food down into usable nutrients" },
+  { word: "fermentation", definition: "a process microorganisms use to transform food" },
+  { word: "nutrient", definition: "a substance the body needs to function and grow" },
+  { word: "micronutrient", definition: "a vitamin or mineral needed in relatively small amounts" },
+  { word: "vitamin", definition: "an essential organic nutrient needed for normal body functions" },
+  { word: "mineral", definition: "an inorganic nutrient essential for health" },
+  { word: "omega", definition: "a family of fatty acids important for human health" },
+  { word: "monounsaturated", definition: "a type of fat found in olive oil and avocados" },
+  { word: "saturated", definition: "a type of fat found in butter, meat, and coconut" },
+  { word: "polyunsaturated", definition: "a type of fat found in foods like nuts and fatty fish" },
+  { word: "transfat", definition: "an unhealthy fat associated with increased cardiovascular risk" },
+  { word: "cholesterol", definition: "a lipid needed for cell membranes and hormone production" },
+  { word: "triglyceride", definition: "a blood lipid used by the body to store energy" },
+  { word: "lipoprotein", definition: "a particle that transports fats through the bloodstream" },
+  { word: "LDL", definition: "a lipoprotein that carries cholesterol and can contribute to artery plaque" },
+  { word: "HDL", definition: "a lipoprotein involved in transporting cholesterol away from tissues" },
+  { word: "inflammation", definition: "the body's response to injury or harmful stimuli" },
+  { word: "oxidation", definition: "a chemical process involved in energy production and other reactions" },
+
+  { word: "processed", definition: "describing food altered through preparation or manufacturing" },
+  { word: "wholefood", definition: "food that is minimally processed and close to its natural form" },
+  { word: "refined", definition: "describing ingredients processed to remove certain components" },
+  { word: "sugar", definition: "a simple carbohydrate that provides energy" },
+  { word: "starch", definition: "a complex carbohydrate found in foods like potatoes and grains" },
+  { word: "fructose", definition: "a naturally occurring sugar found in fruit and honey" },
+  { word: "sucrose", definition: "the common table sugar made from glucose and fructose" },
+  { word: "sweetener", definition: "a substance used to make food taste sweet" },
+  { word: "glycemic", definition: "relating to how carbohydrates affect blood glucose" },
+  { word: "glycemicindex", definition: "a measure of how quickly carbohydrate foods raise blood glucose" },
+  { word: "portion", definition: "the amount of food served or consumed" },
+  { word: "ingredient", definition: "a substance used to prepare a food or recipe" },
+  { word: "label", definition: "food packaging information describing ingredients and nutrition" },
+  { word: "additive", definition: "a substance added to food for a particular purpose" },
+  { word: "preservative", definition: "an ingredient used to slow food spoilage" },
+  { word: "seedoil", definition: "oil extracted from seeds such as sunflower or soybean" },
+  { word: "nutritional", definition: "relating to the nutrients and energy provided by food" },
+  { word: "balanced", definition: "containing an appropriate variety of nutrients for health" },
+  { word: "deficiency", definition: "a condition caused by insufficient amounts of a nutrient" },
+  { word: "sustainable", definition: "a dietary approach that can be maintained over time" }
+];
 const wordBanks = {
   words1: satWords,
   words2: satWords2,
-  words3: investingWords
+  words4: ketoWords
 }
 
 let words = wordBanks.words1; // default word bank
@@ -1329,6 +1423,8 @@ function finishWord(typed) {
   cat.classList.add("bounce");
 
   nextWord();
+    checkUnlocks();
+
 }
 
 // ===== Timer =====
